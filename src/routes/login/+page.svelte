@@ -2,17 +2,23 @@
   import Button from "$lib/components/Button.svelte";
   import Input from "$lib/components/Input.svelte";
 
-  function handleSubmit(e: SubmitEvent) {
-    console.log(e);
-    const formData = new FormData(e.target);
-    const data = {};
+  let email = "iuri.brito@lti.net.br";
+  let password = "password";
 
-    for (let field of formData) {
-      const [key, value] = field;
-      data[key] = value;
-    }
+  async function handleSubmit(e: SubmitEvent) {
+    const res = await fetch("http://localhost:3000/auth/signin", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
 
-    console.log(data);
+    console.log("RESPONSE", res);
   }
 </script>
 
@@ -32,12 +38,14 @@
             name="email"
             label="Email"
             placeholder="email@godeploy.com"
+            value={email}
           />
           <Input
             type="password"
             name="password"
             label="Password"
             placeholder="••••••••"
+            value={password}
           />
           <Button type="submit">Sign In</Button>
         </form>
