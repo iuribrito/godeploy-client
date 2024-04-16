@@ -18,7 +18,7 @@
       }),
     });
 
-    console.log("RESPONSE", res);
+    console.log("RESPONSE", await res.json());
   }
 </script>
 
@@ -29,10 +29,7 @@
     <img class="h-16 mb-6" src="logo.png" alt="logo Go Deploy" />
     <div class="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
       <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-        <form
-          class="space-y-4 md:space-y-6"
-          on:submit|preventDefault={handleSubmit}
-        >
+        <form method="POST" class="space-y-4 md:space-y-6">
           <Input
             type="email"
             name="email"
