@@ -1,4 +1,4 @@
-export async function load({ cookies }) {
+export async function load({ cookies, locals }: any) {
   const jwt = cookies.get('jwt')
 
   const response = await fetch("http://127.0.0.1:3000/projects", {
@@ -11,6 +11,7 @@ export async function load({ cookies }) {
   });
 
   const projects = await response.json();
+  locals.projects = projects;
 
   return { projects };
 }
