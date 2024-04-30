@@ -4,22 +4,6 @@
 
   let email = "iuri.brito@lti.net.br";
   let password = "password";
-
-  async function handleSubmit(e: SubmitEvent) {
-    const res = await fetch("http://localhost:3000/auth/signin", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
-
-    console.log("RESPONSE", await res.json());
-  }
 </script>
 
 <section>

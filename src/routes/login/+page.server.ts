@@ -1,6 +1,9 @@
 import { user } from "$stores/user";
 import { redirect } from "@sveltejs/kit";
 
+export async function load({ cookies }) {
+}
+
 export const actions = {
   default: async ({ cookies, request }) => {
     const data = await request.formData();
@@ -26,16 +29,16 @@ export const actions = {
       user.set({
         name: 'Iuri Brito',
         email,
-        jwt: dataResponse.data
       })
 
       redirect(302, '/');
-      // return { success: true }
     } else {
+      const { errors } = await response.json();
       return {
         status: 400,
         body: {
-          success: false
+          success: false,
+          errors
         }
       }
     }
