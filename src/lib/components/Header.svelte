@@ -9,7 +9,7 @@
     <div class="relative flex h-16 items-center justify-between">
       <div class="flex items-center px-2 lg:px-0">
         <div class="flex-shrink-0">
-          <img class="h-8 w-auto" src="logo_dark.png" alt="Go Deploy" />
+          <img class="h-8 w-auto" src="/logo_dark.png" alt="Go Deploy" />
         </div>
         <Navigation />
       </div>

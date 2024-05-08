@@ -8,38 +8,7 @@
   export let data;
   const project = data.project;
 
-  const mockDeployes = [
-    {
-      author: "Gustavo",
-      deployedAt: "21/04/2024",
-      branch: "master",
-      status: "warning",
-      statusLabel: "Deploing ...",
-    },
-    {
-      author: "Gustavo",
-      deployedAt: "20/04/2024",
-      branch: "master",
-      status: "success",
-      statusLabel: "Deployed",
-    },
-    {
-      author: "Gustavo",
-      deployedAt: "20/04/2024",
-      branch: "master",
-      status: "error",
-      statusLabel: "Fail",
-    },
-    {
-      author: "Gustavo",
-      deployedAt: "21/04/2024",
-      branch: "master",
-      status: "dafault",
-      statusLabel: "Paused",
-    },
-  ];
-
-  console.log(project);
+  const mockDeployes = data.deployes;
 </script>
 
 <div class=" flex items-center justify-between pb-6">
@@ -70,10 +39,12 @@
   </div>
 </div>
 <div class="my-5 border-gray-200 bg-white px-4 py-4 rounded-lg">
-  <div class="flex mb-3 flex-col">
-    <Input label="Branch" />
-  </div>
-  <Button>Deploy</Button>
+  <form method="POST">
+    <div class="flex mb-3 flex-col">
+      <Input label="Branch" name="branch" placeholder="master" />
+    </div>
+    <Button type="submit">Deploy</Button>
+  </form>
 </div>
 <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
   <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
@@ -91,22 +62,21 @@
         {#each mockDeployes as deploy}
           <tr>
             <Td>
-              <p class="text-gray-900 whitespace-no-wrap">{deploy.author}</p>
+              <p class="text-gray-900 whitespace-no-wrap">Iuri</p>
             </Td>
             <Td>
               <p class="text-gray-900 whitespace-no-wrap">
-                {deploy.deployedAt}
+                {deploy.CreatedAt}
               </p>
             </Td>
             <Td>
               <p class="text-gray-900 whitespace-no-wrap">{deploy.branch}</p>
             </Td>
             <Td>
-              <Status schema={deploy.status}>{deploy.statusLabel}</Status>
+              <Status schema={deploy.status}>{deploy.status}</Status>
             </Td>
             <Td>
               <a
-                href="/projects/{project.ID}"
                 class="ml-auto relative text-gray-500 bg-gray-100 hover:text-gray-900 hover:bg-gray-200 flex items-center h-[25px] w-[25px] text-base font-medium leading-normal text-center align-middle cursor-pointer rounded-2xl transition-colors duration-200 ease-in-out shadow-none border-0 justify-center"
               >
                 <span

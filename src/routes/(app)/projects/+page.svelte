@@ -3,8 +3,6 @@
   import Button from "$lib/components/Button.svelte";
   import Th from "$lib/components/Th.svelte";
   export let data;
-
-  console.log(data.projects);
 </script>
 
 <div class=" flex items-center justify-between pb-6">
