@@ -6,8 +6,8 @@
   import Th from "$components/Th.svelte";
 
   export let data;
-  const project = data.project;
 
+  const project = data.project;
   const mockDeployes = data.deployes;
 </script>
 
@@ -76,7 +76,7 @@
               <Status schema={deploy.status}>{deploy.status}</Status>
             </Td>
             <Td>
-              <a
+              <i
                 class="ml-auto relative text-gray-500 bg-gray-100 hover:text-gray-900 hover:bg-gray-200 flex items-center h-[25px] w-[25px] text-base font-medium leading-normal text-center align-middle cursor-pointer rounded-2xl transition-colors duration-200 ease-in-out shadow-none border-0 justify-center"
               >
                 <span
@@ -92,7 +92,7 @@
                     /></svg
                   >
                 </span>
-              </a>
+              </i>
             </Td>
           </tr>
         {/each}

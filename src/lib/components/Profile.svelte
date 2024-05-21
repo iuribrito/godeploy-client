@@ -1,3 +1,9 @@
+<script lang="ts">
+  function onClick() {
+    alert('forever');
+  }
+</script>
+
 <div class="relative ml-4 flex-shrink-0">
   <div>
     <button
@@ -6,6 +12,7 @@
       id="user-menu-button"
       aria-expanded="false"
       aria-haspopup="true"
+      on:click={onClick} 
     >
       <span class="absolute -inset-1.5"></span>
       <span class="sr-only">Open user menu</span>

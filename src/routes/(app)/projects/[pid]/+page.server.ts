@@ -6,7 +6,7 @@ export async function load({ params, cookies, fetch }: any) {
 
   const jwt = cookies.get('jwt')
 
-  const response = await fetch(`http://127.0.0.1:3000/project/${params.pid}`, {
+  const response = await fetch(`http://127.0.0.1:3030/project/${params.pid}`, {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -15,7 +15,7 @@ export async function load({ params, cookies, fetch }: any) {
     }
   });
 
-  const responseDeployes = await fetch(`http://127.0.0.1:3000/project/${params.pid}/deployes`, {
+  const responseDeployes = await fetch(`http://127.0.0.1:3030/project/${params.pid}/deployes`, {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -38,7 +38,7 @@ export const actions = {
     const branch = data.get('branch');
     const project_id = parseInt(params.pid);
 
-    const response = await fetch("http://127.0.0.1:3000/deploy", {
+    const response = await fetch("http://127.0.0.1:3030/deploy", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -50,9 +50,9 @@ export const actions = {
 
     console.log(response)
     if (response.ok) {
-      const dataResponse = await response.json();
+      // const dataResponse = await response.json();
 
-      redirect(302, '/projects');
+      redirect(302, '/projects/' + params.pid);
     } else {
       const { errors } = await response.json();
       return {

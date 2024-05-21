@@ -5,13 +5,13 @@ export async function load({ cookies }) {
 }
 
 export const actions = {
-  default: async ({ cookies, request }) => {
+  default: async ({ cookies, request }: any) => {
     const data = await request.formData();
 
     const email = data.get('email');
     const password = data.get('password');
 
-    const response = await fetch("http://127.0.0.1:3000/auth/signin", {
+    const response = await fetch("http://127.0.0.1:3030/auth/signin", {
       method: "POST",
       headers: {
         Accept: "application/json",
